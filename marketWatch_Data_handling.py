@@ -59,10 +59,37 @@ def historical_quotes_data_handling():
 
     print(historical_quotes_df)
     print('Plotting the data')
-    historical_quotes_df['Open'] = historical_quotes_df['Open'].str.replace(',', '').astype(float)
-    historical_quotes_df['High'] = historical_quotes_df['High'].str.replace(',', '').astype(float)
-    historical_quotes_df['Low'] = historical_quotes_df['Low'].str.replace(',', '').astype(float)
-    historical_quotes_df['Close'] = historical_quotes_df['Close'].str.replace(',', '').astype(float)
+    try:  # For row data with comma and decimal point
+        historical_quotes_df['Date'] = pd.to_datetime(historical_quotes_df['Date'])
+        historical_quotes_df['Open'] = historical_quotes_df['Open'].str.replace(',', '').astype(float)
+        historical_quotes_df['High'] = historical_quotes_df['High'].str.replace(',', '').astype(float)
+        historical_quotes_df['Low'] = historical_quotes_df['Low'].str.replace(',', '').astype(float)
+        historical_quotes_df['Close'] = historical_quotes_df['Close'].str.replace(',', '').astype(float)
+
+    except:
+        pass
+
+    try:  # For row data with decimal point
+        historical_quotes_df['Date'] = pd.to_datetime(historical_quotes_df['Date'])
+        historical_quotes_df['Open'] = historical_quotes_df['Open'].astype(float)
+        historical_quotes_df['High'] = historical_quotes_df['High'].astype(float)
+        historical_quotes_df['Low'] = historical_quotes_df['Low'].astype(float)
+        historical_quotes_df['Close'] = historical_quotes_df['Close'].astype(float)
+
+    except:
+        pass
+
+    try:  # For row data with percentage and decimal point
+
+        historical_quotes_df['Date'] = pd.to_datetime(historical_quotes_df['Date'])
+        historical_quotes_df['Open'] = historical_quotes_df['Open'].str.replace('%', '').astype(float)
+        historical_quotes_df['High'] = historical_quotes_df['High'].str.replace('%', '').astype(float)
+        historical_quotes_df['Low'] = historical_quotes_df['Low'].str.replace('%', '').astype(float)
+        historical_quotes_df['Close'] = historical_quotes_df['Close'].str.replace('%', '').astype(float)
+        print("All the values except Date are in percentage. For plotting needed to remove that")
+
+    except:
+        pass
 
     historical_quotes_df[['Date', 'Open', 'High', 'Low', 'Close']].plot(x="Date", kind="bar")
 
