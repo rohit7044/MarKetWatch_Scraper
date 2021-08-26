@@ -8,3 +8,5 @@ Selenium Robot to Scrape marketwatch.com Website
  - from overview-->Key Data-->Performance-->Top Performers-->Bottom Performers
  - from historical quotes-->Daily/Weekly/Monthly.csv to dataframe--> plot
  - Right now working for all
+
+# Start the program from marketWatch_Header_table_item_Scraper.py
