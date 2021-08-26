@@ -100,6 +100,7 @@ def historical_quotes_data_handling():
 def future_contract_data_handling(recent_contracts_table_header_list,recent_contracts_table_contracts_name_list,recent_contracts_table_contracts_last_list,
                                       recent_contracts_table_contracts_change_list,recent_contracts_table_contracts_open_list,
                                       recent_contracts_table_contracts_high_list,recent_contracts_table_contracts_low_list,recent_contracts_table_contracts_date_list):
+    # This is for contract data handling only happens in some cases like future contracts and futures
     recent_contracts_df = ''
 
     recent_contracts_df = pd.DataFrame(list(zip(recent_contracts_table_contracts_name_list, recent_contracts_table_contracts_last_list,recent_contracts_table_contracts_change_list,
