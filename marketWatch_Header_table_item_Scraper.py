@@ -405,7 +405,7 @@ def historical_Quotes_scraper(driver):
     # driver.execute_script('arguments[0].click()', final_item_choice_result)
     # Download_CSV(driver)
 
-def Download_CSV(driver,choice_result):# Downloading CSV
+def Download_CSV(driver,choice_result):# Downloading CSV File from the auxillary directory
     download_Xpath = driver.find_element_by_xpath("(//div[contains(@class,'tabPanes')]/div["+str(choice_result)+"]//a)[1]")
     driver.execute_script('arguments[0].click()', download_Xpath)
     main_path = os.getcwd()
