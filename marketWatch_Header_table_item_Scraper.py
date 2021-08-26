@@ -35,7 +35,7 @@ def Selenium_Configuration(marketWatch_url):  # Configuration to run Selenium
 
     # Creating WebDriver
     options = Options()
-    # options.add_extension('C:/chropath/extension_6_1_11_0.crx')  # For Catching xpath: Not necessary for future use
+    # options.add_extension('C:/chropath/extension_6_1_11_0.crx')  # For Catching Xpath: Not necessary for future use
     options.add_experimental_option("prefs",{"download.default_directory":download_path,
                                              "download.prompt_for_download": False,
                                              "download.directory_upgrade": True,
@@ -60,7 +60,7 @@ def header_market_table_data_crawler(driver): # This function will scrape the ta
 # Asking for Input and Clicking the Element
     choice_header = input("\nChoose Your Preference: ")
 
-    if choice_header >= '7' or choice_header <= '0':
+    if choice_header >= '8' or choice_header <= '0':
         print("\nWrong Choice: Refreshing the program..\n")
         refresh_reason = "Wrong Choice"
         refresh_page(driver,refresh_reason)
@@ -134,8 +134,8 @@ def subnavigation_choice(driver): # This function gives User to choose his prefe
             print("\nScraping " + (subnavigation_list[int(subnav_choice) - 1]).text+ "\n")
             overview_scraper(driver)
         if subnav_choice == '2':
-            print("\nScraping " + (subnavigation_list[int(subnav_choice) - 1]).text+ "\n")
-            charts_scraper(driver)
+            print("\nCHARTS ARE NOT WORKING!!! RESTARTING PROGRAM" + "\n")
+            refresh_page(driver,refresh_reason="Wrong Choice")
         if subnav_choice == '3':
             print("\nScraping " + (subnavigation_list[int(subnav_choice) - 1]).text+ "\n")
             historical_Quotes_scraper(driver)
