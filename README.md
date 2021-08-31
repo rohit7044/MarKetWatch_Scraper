@@ -10,3 +10,6 @@ Selenium Robot to Scrape marketwatch.com Website
  - Right now working for all
 
 # Start the program from marketWatch_Header_table_item_Scraper.py
+
+
+# For pipelining with other ML models, use marketwatch_scraper_Google_Colab file in Google Colab. Working Since 01-09-2021
